@@ -1,0 +1,26 @@
+---
+- name: Grab Configs -  Transcoders 
+  hosts: all
+  become: yes
+  
+  tasks:
+     
+   - name: grab interface eth0
+     fetch: src=/etc/sysconfig/network-scripts/ifcfg-eth0 dest=files/
+     tags: common
+   
+   - name: grab interface eth1 
+     fetch: src=/etc/sysconfig/network-scripts/ifcfg-eth1 dest=files/
+     tags: common
+   
+   - name: grab interface eth2
+     fetch: src=/etc/sysconfig/network-scripts/ifcfg-eth2 dest=files/
+     tags: common
+  
+   - shell: (cd /etc/yum.repos.d/; find . -maxdepth 1 -type f) | cut -d'/' -f2
+     register: files_to_copy
+
+   - name: fetch the repos
+     fetch: src=/etc/yum.repos.d/{{ item }} dest=files/
+     with_items: "{{ files_to_copy.stdout_lines }}"
+   
