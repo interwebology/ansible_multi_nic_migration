@@ -6,13 +6,13 @@
   tasks:
      
    - name: grab interface eth0 
-     copy: src="files/{{ ansible_default_ipv4.addresses }}/etc/sysconfig/network-scripts/ifcfg-eth0" dest=/etc/sysconfig/network-scripts/ifcfg-enp6s0
+     copy: src="files/{{ ansible_default_ipv4.address }}/etc/sysconfig/network-scripts/ifcfg-eth0" dest=/etc/sysconfig/network-scripts/ifcfg-enp6s0
    
    - name: grab interface eth1
-     copy: src="files/{{ ansible_default_ipv4.addresses }}/etc/sysconfig/network-scripts/ifcfg-eth1" dest=/etc/sysconfig/network-scripts/ifcfg-enp7s0
+     copy: src="files/{{ ansible_default_ipv4.address }}/etc/sysconfig/network-scripts/ifcfg-eth1" dest=/etc/sysconfig/network-scripts/ifcfg-enp7s0
    
    - name: grab interface eth2
-     copy: src="files/{{ ansible_default_ipv4.addresses }}/etc/sysconfig/network-scripts/ifcfg-eth2" dest=/etc/sysconfig/network-scripts/ifcfg-enp8s0
+     copy: src="files/{{ ansible_default_ipv4.address }}/etc/sysconfig/network-scripts/ifcfg-eth2" dest=/etc/sysconfig/network-scripts/ifcfg-enp8s0
    
    - name: add user to the sudoers file
      shell: echo "elemental ALL=(ALL)    ALL" >> /etc/sudoers
