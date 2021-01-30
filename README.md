@@ -12,7 +12,7 @@ Simply run **ansible-playbook grab_configs.yml -i host.txt -u root --ask-pass**
 
 ## Installing the NIC configurations to CentOS 7
 
-Run ***ansible-playbook install_config.yml -i host.txt -u root --ask-pass**
+Run **ansible-playbook install_config.yml -i host.txt -u root --ask-pass**
 
 if you get the common error where Ansible has trouble interacting with libselinux then you will need you install it.
 
