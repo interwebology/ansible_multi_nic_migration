@@ -8,18 +8,22 @@ The install script will install the NIC configs and the grab script with pull do
 
 ## Grabbing the NIC configurations and repos from CentOS 6
 
-'''
+```
 ansible-playbook grab_configs.yml -i host.txt -u root --ask-pass
-'''
+```
+
 
 ## Installing the NIC configurations to CentOS 7
 
-''' 
+```
+
 ansible-playbook install_config.yml -i host.txt -u root --ask-pass
-'''
+```
+
 
 if you get the common error where Ansible has trouble interacting with libselinux then you will need you install it.
 
-'''
+```
 sudo yum install -y libselinux-python
-'''
+```
+
